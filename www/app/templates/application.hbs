@@ -1,0 +1,51 @@
+{{#paper-sidenav-container class="inner-sidenav"}}
+
+  {{#paper-sidenav
+    class="md-whiteframe-z2"
+    name="left"
+    open=leftSideBarOpen
+    onToggle=(action (mut leftSideBarOpen))}}
+    {{#paper-toolbar as |toolbar|}}
+      {{#paper-toolbar-tools}}{{this.title}}{{/paper-toolbar-tools}}
+    {{/paper-toolbar}}
+    {{#paper-content padding=true}}
+      {{#paper-list}}
+        {{#paper-item}}
+          {{#link-to 'home'}}
+            {{#paper-button}}Home{{/paper-button}}
+          {{/link-to}}
+        {{/paper-item}}
+        {{#each-in this.navigation as |key value|}}
+          {{#paper-item}}
+            {{#paper-menu as |menu|}}
+              {{#menu.trigger}}
+                {{#paper-button}}
+                  {{key}}
+                {{/paper-button}}
+              {{/menu.trigger}}
+              {{#menu.content width=4 as |content|}}
+                {{#each value as |item|}}
+                  {{#link-to item.link}}
+                    {{#content.menu-item }}
+<!--                      {{paper-icon item.icon}}-->
+                      <span>{{item.title}}</span>
+                    {{/content.menu-item}}
+                  {{/link-to}}
+                {{/each}}
+              {{/menu.content}}
+            {{/paper-menu}}
+          {{/paper-item}}
+        {{/each-in}}
+      {{/paper-list}}
+    {{/paper-content}}
+  {{/paper-sidenav}}
+
+  {{#paper-card-content class="flex"}}
+    <div class="main">
+      {{outlet}}
+    </div>
+  {{/paper-card-content}}
+
+{{/paper-sidenav-container}}
+
+<!--onChange=(action "noop")-->

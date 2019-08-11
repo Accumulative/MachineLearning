@@ -1,0 +1,23 @@
+
+<h2>{{this.title}}</h2>
+<h3>Equations</h3>
+{{latex-maths expr="\tag{1} y = a_1x_1 + a_2x_2 + ... + a_3x_3 + c" display=true}}
+
+<h3>Description</h3>
+<p>
+Each Xn represents an independent variable. y is the dependent variable. It can be seen that simple linear regression is just a trivial case of this, therefore we can apply the same methods in a n-dimensional space.
+</p>
+<h3>Extra considerations</h3>
+<h4>Categorical variables</h4>
+<h5>One hot encoding</h5>
+<h5>The dummy variable trap</h5>
+<h4>Non-correlated variables</h4>
+<h5>Back propagation</h5>
+<h3>Execute</h3>
+<button {{action "execute"}}>Execute</button>
+<div class="graphs">
+  {{#each this.graphs as |graph|}}
+    <div class="flex"><img style="width: 100%" src="data:image/jpeg;base64,{{graph}}" /></div>
+  {{/each}}
+</div>
+

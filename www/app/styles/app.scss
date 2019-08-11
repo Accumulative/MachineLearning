@@ -1,0 +1,30 @@
+@import 'ember-paper';
+
+body > .ember-view {
+  height: 100%;
+}
+
+.inner-sidenav > md-sidenav {
+  overflow: unset !important;
+  position: fixed !important;
+  height: 100%;
+}
+
+.main {
+  margin: 0 20px 0 20px;
+}
+
+@media (min-width: 960px) {
+  .main {
+    margin: 0 20px 0 340px;
+  }
+}
+
+h2, h3 {
+  text-align: center;
+}
+
+.graphs {
+  display: grid;
+  grid-template-columns: auto auto;
+}

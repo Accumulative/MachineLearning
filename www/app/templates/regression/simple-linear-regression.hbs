@@ -1,0 +1,18 @@
+
+<h2>{{this.title}}</h2>
+<h3>Equations</h3>
+{{latex-maths expr="\tag{1} y = mx + c" display=true}}
+
+<h3>Description</h3>
+<p>
+X is the independent variable. y is the dependent variable. By using a set of data, and drawing a line through the center, we can then use this line to predict points that are not in the data set.
+The goal is a line such that the average distance from all the points is as small as possible. This is a minimization problem that can be solved using the <a href="https://en.wikipedia.org/wiki/Ordinary_least_squares" target="_blank">least squares</a> approach.
+</p>
+<h3>Execute</h3>
+<button {{action "execute"}}>Execute</button>
+<div class="graphs">
+  {{#each this.graphs as |graph|}}
+    <div class="flex"><img style="width: 100%" src="data:image/jpeg;base64,{{graph}}" /></div>
+  {{/each}}
+</div>
+
