@@ -2,9 +2,9 @@
 *.csv
 *.jpg
 .idea
-*.png
+src/**/*.png
 *.tsv
-
+*.xcf
 .DS_Store
 .env
 .flaskenv

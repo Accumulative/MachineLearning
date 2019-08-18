@@ -22,8 +22,7 @@ Note that assuming all of the rows of data fall into one of these categories, an
 
 Therefore they are <a href="https://en.wikipedia.org/wiki/Multicollinearity">Multicollinear</a>, and including all of them is going to give worse results.
 To deal with this, and avoid the Dummy variable trap, we strip one of the variables off.
-<h4>Non-correlated variables</h4>
-<h5>Back propagation</h5>
+
 <h3>Execute</h3>
 <button {{action "execute"}}>Execute</button>
 <div class="graphs">
@@ -32,3 +31,19 @@ To deal with this, and avoid the Dummy variable trap, we strip one of the variab
   {{/each}}
 </div>
 
+
+<h3>Results</h3>
+It can be seen that R&D spend has a strong correlation, marketing spend has a slight correlation and that the other variables look like they dont have any relevance at all.
+However, to know if that is statistically true, we will use back propagation.
+
+<h5>Back propagation</h5>
+
+<button {{action "backward_propagation"}}>Perform backward propagation</button>
+
+<table style="min-width: 500px;">
+  <tr><th>Order</th><th>Variable</th><th>P-value</th></tr>
+
+  {{#each this.table as |row index|}}
+    <tr><td>{{index}}</td><td>{{row.name}}</td><td>{{row.pval}}</td></tr>
+   {{/each}}
+</table>

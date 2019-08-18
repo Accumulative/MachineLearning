@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 from flask_cors import CORS, cross_origin
 
 import os, sys
@@ -24,6 +24,12 @@ def simple_linear_regression_test():
 def multiple_linear_regression_test():
     graphs = multiple_linear_regression.execute()
     return { 'data': graphs }
+
+@app.route('/multiple_linear_regression/backward_propagation')
+def multiple_linear_regression_backward_propagation():
+    sl = float(request.args.get('sl'))
+    table = multiple_linear_regression.backward_propagation(sl)
+    return { 'data': table }
 
 if __name__ == '__main__':
     app.run()
